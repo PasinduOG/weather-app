@@ -78,7 +78,7 @@ function fetchWeatherDetails() {
             }
         });
 
-    fetch(`https://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${city}&days=6&aqi=no&alerts=no`)
+    fetch(`https://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${city}&days=7&aqi=no&alerts=no`)
         .then(res => res.json())
         .then(data => {
             
@@ -88,8 +88,8 @@ function fetchWeatherDetails() {
             // Clear container if user search another city
             container.innerHTML = null;
 
-            for (let i = 0; i < forecastArr.length; i++) {
-                let date = forecastArr[i];
+            for (let i = 0; i < forecastArr.length-1; i++) {
+                let date = forecastArr[i+1];
                 container.innerHTML += `
                     <div class="col-md-6 col-lg-4 col-xl-2" id="day1">
                         <div class="bg-white border rounded-3 p-3 shadow-sm text-center">
