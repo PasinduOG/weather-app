@@ -4,7 +4,7 @@ function fetchWeatherDetails() {
     let city = document.getElementById("txtCity").value;
     let card = document.getElementById("weatherCard");
 
-    fetch(`http://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${city}&aqi=yes`)
+    fetch(`https://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${city}&aqi=yes`)
         .then(res => res.json())
         .then(data => {
             console.log(data);
@@ -78,7 +78,7 @@ function fetchWeatherDetails() {
             }
         });
 
-    fetch(`http://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${city}&days=6&aqi=no&alerts=no`)
+    fetch(`https://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${city}&days=6&aqi=no&alerts=no`)
         .then(res => res.json())
         .then(data => {
             
