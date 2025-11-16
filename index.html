@@ -12,14 +12,19 @@
 </head>
 
 <body class="bg-light min-vh-100 d-flex align-items-center justify-content-center p-4">
-    <div class="container bg-white rounded-4 shadow-lg p-4" style="max-width: 1100px;">
+    <!-- Background video (place file at assets/videos/34724499.mp4) -->
+    <video id="bg-video" autoplay muted loop playsinline>
+        <source src="assets/videos/14719677.mp4" type="video/mp4">
+        <!-- Fallback image/text -->
+    </video>
+
+    <div class="container bg-white rounded-4 shadow-lg p-4" style="max-width: 1100px; backdrop-filter: blur(6px);">
         <div class="d-flex row justify-content-between align-items-center mb-4">
-            <div class="d-flex align-items-center justify-content-center justify-content-md-start bg-light rounded-pill px-3 py-2 shadow-sm col-12 col-md-7" style="width: 360px;">
-                <input type="text" class="form-control border-0 bg-transparent shadow-none"
+            <div class="d-flex align-items-center justify-content-center justify-content-md-start bg-light rounded-pill px-3 py-2 shadow-sm col-12 col-md-6 col-lg-4">
+                <input type="text" class="form-control col-12 border-0 bg-transparent shadow-none"
                     placeholder="Search for places...">
-                <button class="btn btn-primary btn-sm rounded-pill">Search</button>
             </div>
-            <div class="d-flex justify-content-center justify-content-md-end align-items-center col-12 col-md-5 mt-4 mt-md-0">
+            <div class="d-flex justify-content-center justify-content-md-end align-items-center col-12 col-md-6 col-lg-8 mt-4 mt-md-0">
                 <h2>Weather Forecast</h2>
             </div>
         </div>
@@ -31,12 +36,12 @@
                         <img src="assets/img/cloudy.png" class="mt-4" width="120px">
                     </div>
 
-                    <h1 class="fs-4 fw-bold text-dark">City Name</h1>
+                    <h1 class="fs-4 fw-bold text-dark" id="city">City Name</h1>
                     <p class="text-muted small">--</p>
-                    <h2 class="display-2 fw-semibold text-dark my-2">--°C</h2>
-                    <p class="text-muted">Condition</p>
+                    <h2 class="display-2 fw-semibold text-dark my-2"><span id="temp">--</span>°C</h2>
+                    <p class="text-muted" id="condition">Condition</p>
                     <div class="bg-light rounded-3 px-3 py-2 d-inline-block mt-2">
-                        <span class="fw-semibold text-dark small">Location</span>
+                        <span class="fw-semibold text-dark small" id="location">Location</span>
                     </div>
                 </div>
             </div>
@@ -48,7 +53,7 @@
                         <div class="col-md-4">
                             <div class="bg-white border rounded-3 p-3 shadow-sm">
                                 <p class="text-muted small mb-1">UV Index</p>
-                                <h4 class="fs-3 fw-bold mb-0">--</h4>
+                                <h4 class="fs-3 fw-bold mb-0" id="uvIndex">--</h4>
                                 <p class="text-muted small mb-0">UV</p>
                             </div>
                         </div>
@@ -56,7 +61,7 @@
                         <div class="col-md-4">
                             <div class="bg-white border rounded-3 p-3 shadow-sm">
                                 <p class="text-muted small mb-1">Wind Status</p>
-                                <h4 class="fs-3 fw-bold mb-0">--</h4>
+                                <h4 class="fs-3 fw-bold mb-0" id="wind">--</h4>
                                 <p class="text-muted small mb-0">--</p>
                             </div>
                         </div>
@@ -64,7 +69,7 @@
                         <div class="col-md-4">
                             <div class="bg-white border rounded-3 p-3 shadow-sm">
                                 <p class="text-muted small mb-1">Sunrise & Sunset</p>
-                                <h4 class="fs-6 fw-bold mb-0">-- / --</h4>
+                                <h4 class="fs-6 fw-bold mb-0"><span id="sunRise">--</span> / <span id="sunSet">--</span></h4>
                                 <p class="text-muted small mb-0">Local times</p>
                             </div>
                         </div>
@@ -72,7 +77,7 @@
                         <div class="col-md-4">
                             <div class="bg-white border rounded-3 p-3 shadow-sm">
                                 <p class="text-muted small mb-1">Humidity</p>
-                                <h4 class="fs-3 fw-bold mb-0">--%</h4>
+                                <h4 class="fs-3 fw-bold mb-0"><span id="humidity">--</span>--%</h4>
                                 <p class="text-muted small mb-0">Normal</p>
                             </div>
                         </div>
@@ -80,7 +85,7 @@
                         <div class="col-md-4">
                             <div class="bg-white border rounded-3 p-3 shadow-sm">
                                 <p class="text-muted small mb-1">Visibility</p>
-                                <h4 class="fs-3 fw-bold mb-0">-- km</h4>
+                                <h4 class="fs-3 fw-bold mb-0"><span id="visibility">--</span> km</h4>
                                 <p class="text-muted small mb-0">Average</p>
                             </div>
                         </div>
@@ -88,8 +93,8 @@
                         <div class="col-md-4">
                             <div class="bg-white border rounded-3 p-3 shadow-sm">
                                 <p class="text-muted small mb-1">Air Quality</p>
-                                <h4 class="fs-3 fw-bold mb-0">--</h4>
-                                <p class="text-muted small mb-0">--</p>
+                                <h4 class="fs-3 fw-bold mb-0" id="airQuality">--</h4>
+                                <p class="text-muted small mb-0" id="airStatus">--</p>
                             </div>
                         </div>
                     </div>
