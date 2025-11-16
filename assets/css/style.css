@@ -1,15 +1,1 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
 
-.bg-image{
-    background-image: url("../img/02.gif");
-	width: 100%;
-    background-size: cover;
-    background-repeat: no-repeat;
-	z-index: -1;
-    background-attachment: fixed;
-	filter: saturate(1) contrast(0.95);
-}
