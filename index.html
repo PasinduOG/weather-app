@@ -10,7 +10,95 @@
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 </head>
 
-<body>
+<body class="bg-light min-vh-100 d-flex align-items-center justify-content-center p-4">
+    <div class="container bg-white rounded-4 shadow-lg p-4" style="max-width: 1100px;">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <div class="d-flex align-items-center bg-light rounded-pill px-3 py-2 shadow-sm" style="width: 360px;">
+                <input type="text" class="form-control border-0 bg-transparent shadow-none"
+                    placeholder="Search for places...">
+                <button class="btn btn-primary btn-sm rounded-pill">Search</button>
+            </div>
+            <div class="d-flex align-items-center">
+                <h2>Weather Forecast</h2>
+            </div>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-lg-4">
+                <div class="text-center">
+                    <div class="position-relative mx-auto mb-3" style="width: 200px; height: 180px;">
+                        <div class="bg-warning rounded-circle position-absolute"
+                            style="width: 120px; height: 120px; top: 20px; left: 10px; opacity: 0.8;"></div>
+                        <div class="bg-white rounded-circle position-absolute shadow-sm"
+                            style="width: 80px; height: 60px; top: 50px; left: 90px; opacity: 0.9;"></div>
+                    </div>
+
+                    <h1 class="fs-4 fw-bold text-dark">City Name</h1>
+                    <p class="text-muted small">--</p>
+                    <h2 class="display-2 fw-semibold text-dark my-2">--°C</h2>
+                    <p class="text-muted">Condition</p>
+                    <div class="bg-light rounded-3 px-3 py-2 d-inline-block mt-2">
+                        <span class="fw-semibold text-dark small">Location</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-8">
+                <div>
+                    <h3 class="fs-5 fw-semibold mb-3">Today's Highlights</h3>
+                    <div class="row g-3">
+                        <div class="col-md-4">
+                            <div class="bg-white border rounded-3 p-3 shadow-sm">
+                                <p class="text-muted small mb-1">UV Index</p>
+                                <h4 class="fs-3 fw-bold mb-0">--</h4>
+                                <p class="text-muted small mb-0">UV</p>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="bg-white border rounded-3 p-3 shadow-sm">
+                                <p class="text-muted small mb-1">Wind Status</p>
+                                <h4 class="fs-3 fw-bold mb-0">--</h4>
+                                <p class="text-muted small mb-0">--</p>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="bg-white border rounded-3 p-3 shadow-sm">
+                                <p class="text-muted small mb-1">Sunrise & Sunset</p>
+                                <h4 class="fs-6 fw-bold mb-0">-- / --</h4>
+                                <p class="text-muted small mb-0">Local times</p>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="bg-white border rounded-3 p-3 shadow-sm">
+                                <p class="text-muted small mb-1">Humidity</p>
+                                <h4 class="fs-3 fw-bold mb-0">--%</h4>
+                                <p class="text-muted small mb-0">Normal</p>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="bg-white border rounded-3 p-3 shadow-sm">
+                                <p class="text-muted small mb-1">Visibility</p>
+                                <h4 class="fs-3 fw-bold mb-0">-- km</h4>
+                                <p class="text-muted small mb-0">Average</p>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="bg-white border rounded-3 p-3 shadow-sm">
+                                <p class="text-muted small mb-1">Air Quality</p>
+                                <h4 class="fs-3 fw-bold mb-0">--</h4>
+                                <p class="text-muted small mb-0">--</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script src="assets/js/script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
