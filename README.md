@@ -201,4 +201,3 @@ If you'd like, I can:
 - add an example screenshot to the repo 📸,
 - generate a LICENSE file 🧾,
 - or update the README to reference the exact JS file where your API key needs to go (I can search the repo and insert precise instructions). 🔎
-```
