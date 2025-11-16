@@ -19,25 +19,45 @@
     </video>
 
     <div class="container bg-white rounded-4 shadow-lg p-4" style="max-width: 1100px; backdrop-filter: blur(6px);">
-        <div class="d-flex row justify-content-between align-items-center mb-4">
-            <div class="d-flex align-items-center justify-content-center justify-content-md-start bg-light rounded-pill px-3 py-2 shadow-sm col-12 col-md-6 col-lg-4">
-                <input type="text" class="form-control col-12 border-0 bg-transparent shadow-none"
-                    placeholder="Search for places...">
+        <div class="d-flex row justify-content-between align-items-center">
+            <div
+                class="d-flex align-items-center justify-content-center justify-content-md-start col-12 col-md-6 col-lg-4">
+                <div class="input-group bg-light rounded-pill px-2 py-1 shadow-sm w-100">
+                    <input type="text" id="txtCity"
+                        class="form-control border-0 bg-transparent shadow-none rounded-start-pill"
+                        placeholder="Search for places...">
+                    <button class="btn btn-primary rounded-end-pill d-flex align-items-center justify-content-center"
+                        onclick="fetchWeatherDetails()" style="width:50px; height:44px;">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff">
+                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                            <g id="SVGRepo_iconCarrier">
+                                <path
+                                    d="M11 6C13.7614 6 16 8.23858 16 11M16.6588 16.6549L21 21M19 11C19 15.4183 15.4183 19 11 19C6.58172 19 3 15.4183 3 11C3 6.58172 6.58172 3 11 3C15.4183 3 19 6.58172 19 11Z"
+                                    stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                </path>
+                            </g>
+                        </svg>
+                    </button>
+                </div>
             </div>
-            <div class="d-flex justify-content-center justify-content-md-end align-items-center col-12 col-md-6 col-lg-8 mt-4 mt-md-0">
-                <h2>Weather Forecast</h2>
+            <div
+                class="d-flex justify-content-center justify-content-md-end align-items-center col-12 col-md-6 col-lg-8 mt-4 mt-md-0">
+                <img src="assets/img/cloudy.png" class="mb-2" width="8%">&nbsp;&nbsp;&nbsp;
+                <h3>The Weather App</h3>
             </div>
+
         </div>
 
-        <div class="row g-4">
+        <div class="row g-4 mt-3 d-none" id="weatherCard">
             <div class="col-lg-4">
                 <div class="text-center">
-                    <div class="position-relative mx-auto mb-3" style="width: 200px; height: 180px;">
-                        <img src="assets/img/cloudy.png" class="mt-4" width="120px">
+                    <div class="position-relative mx-auto mb-3" id="weatherIcon" style="width: 200px; height: 180px;">
+
                     </div>
 
                     <h1 class="fs-4 fw-bold text-dark" id="city">City Name</h1>
-                    <p class="text-muted small">--</p>
+                    <p class="text-muted small" id="province">--</p>
                     <h2 class="display-2 fw-semibold text-dark my-2"><span id="temp">--</span>°C</h2>
                     <p class="text-muted" id="condition">Condition</p>
                     <div class="bg-light rounded-3 px-3 py-2 d-inline-block mt-2">
@@ -48,7 +68,7 @@
 
             <div class="col-lg-8">
                 <div>
-                    <h3 class="fs-5 fw-semibold mb-3">Today's Highlights</h3>
+                    <h3 class="fs-5 fw-semibold mb-3 text-start text-lg-end">Today's Highlights</h3>
                     <div class="row g-3">
                         <div class="col-md-4">
                             <div class="bg-white border rounded-3 p-3 shadow-sm">
@@ -62,14 +82,15 @@
                             <div class="bg-white border rounded-3 p-3 shadow-sm">
                                 <p class="text-muted small mb-1">Wind Status</p>
                                 <h4 class="fs-3 fw-bold mb-0" id="wind">--</h4>
-                                <p class="text-muted small mb-0">--</p>
+                                <p class="text-muted small mb-0" id="windStatus">--</p>
                             </div>
                         </div>
 
                         <div class="col-md-4">
                             <div class="bg-white border rounded-3 p-3 shadow-sm">
                                 <p class="text-muted small mb-1">Sunrise & Sunset</p>
-                                <h4 class="fs-6 fw-bold mb-0"><span id="sunRise">--</span> / <span id="sunSet">--</span></h4>
+                                <h4 class="fs-6 fw-bold mb-0"><span id="sunRise">--</span> / <span id="sunSet">--</span>
+                                </h4>
                                 <p class="text-muted small mb-0">Local times</p>
                             </div>
                         </div>
@@ -77,8 +98,8 @@
                         <div class="col-md-4">
                             <div class="bg-white border rounded-3 p-3 shadow-sm">
                                 <p class="text-muted small mb-1">Humidity</p>
-                                <h4 class="fs-3 fw-bold mb-0"><span id="humidity">--</span>--%</h4>
-                                <p class="text-muted small mb-0">Normal</p>
+                                <h4 class="fs-3 fw-bold mb-0"><span id="humidity">--</span>%</h4>
+                                <p class="text-muted small mb-0" id="humidStatus"></p>
                             </div>
                         </div>
 
@@ -86,7 +107,7 @@
                             <div class="bg-white border rounded-3 p-3 shadow-sm">
                                 <p class="text-muted small mb-1">Visibility</p>
                                 <h4 class="fs-3 fw-bold mb-0"><span id="visibility">--</span> km</h4>
-                                <p class="text-muted small mb-0">Average</p>
+                                <p class="text-muted small mb-0" id="visibleStatus">Average</p>
                             </div>
                         </div>
 
@@ -100,13 +121,25 @@
                     </div>
                 </div>
             </div>
+
+            <div class="col-12">
+                <div class="row g-4" id="cardContainer"></div>
+            </div>
+        </div>
+        <hr>
+        <div class="row text-center mt-5">
+            <div class="col-12">
+                <p>Made by &copy; Pasindu OG</p>
+            </div>
         </div>
     </div>
 
-    <script src="assets/js/script.js"></script>
+    <!-- Load SweetAlert2 BEFORE your custom script -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>
+    <script src="assets/js/script.js"></script>
 </body>
 
 </html>
