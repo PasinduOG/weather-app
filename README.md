@@ -1,4 +1,3 @@
-```markdown
 # Weather App ☀️🌦️
 
 Simple, lightweight, static Weather App built with plain HTML, CSS and JavaScript. This project fetches current weather information for a city and displays it in a clean, responsive UI.
@@ -45,8 +44,11 @@ A live demo can be hosted via GitHub Pages, Netlify, Vercel, or any static host.
 
 ### Installation (local) 📦
 1. Clone the repository:
+
+```bash
    - git clone https://github.com/PasinduOG/weather-app.git
    - cd weather-app
+```
 
 2. Open `index.html` in your browser, or serve it using a local static server (recommended when making network requests).
 
